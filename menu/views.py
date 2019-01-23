@@ -1,11 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import Http404
 
 from django.db.models import Q
 from datetime import datetime, timedelta
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.urlresolvers import reverse
 
 from .models import *
 from .forms import *
@@ -54,5 +52,5 @@ def edit_menu(request, pk):
         form = MenuForm(instance=menu, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('menu:menu_detail', pk=menu.pk)
+            return redirect('menu_detail', pk=menu.pk)
     return render(request, 'menu/menu_edit.html', {'form': form})

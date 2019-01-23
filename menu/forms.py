@@ -14,9 +14,7 @@ class MenuForm(forms.ModelForm):
             'expiration_date'
         ]
 
-        widgets = {'created_date': forms.HiddenInput()}
-
-    def clean_expiration_dat(self):
+    def clean_expiration(self):
         expiration_date_key = self.cleaned_data.get['expiration_date']
         if expiration_date_key < timezone.now().date():
             raise forms.ValidationError("Enter a date that is later than today!")
