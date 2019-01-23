@@ -11,8 +11,8 @@ We spent a weekend doing a hackathon a year or so ago and someone built this pro
 2. Templates inherit nicely to reduce the total amount of code written. <br />
 - Some templates removed completely and remaining inherit from a layout.html <br />
 <br />
-3. Model fields are corrected to store correct value types. Migrations are included to change the field types.
-- Model fields store correct value types and migrations are included.
+3. Model fields are corrected to store correct value types. Migrations are included to change the field types.<br />
+- Model fields store correct value types and migrations are included.<br />
 <br />
 4. Form validation is corrected for proper use of clean(), clean_field(), and validators. <br />
 -  Uses clean() <br />
