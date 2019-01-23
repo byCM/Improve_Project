@@ -15,7 +15,7 @@ class MenuForm(forms.ModelForm):
         ]
 
     def clean_expiration(self):
-        expiration_date_key = self.cleaned_data.get['expiration_date']
+        expiration_date_key = self.cleaned_data['expiration_date']
         if expiration_date_key < timezone.now().date():
             raise forms.ValidationError("Enter a date that is later than today!")
         return expiration_date_key
