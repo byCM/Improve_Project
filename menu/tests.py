@@ -44,6 +44,7 @@ class ViewsTests(TestCase):
         self.menu_no_date.items = (self.item_2,)
 
     def test_menu_detail(self):
+        """Tests menu_detail in views"""
         resp = self.client.get(reverse('menu_detail', kwargs={'pk': self.menu_new.pk}))
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp, 'menu/menu_detail.html')
@@ -51,10 +52,12 @@ class ViewsTests(TestCase):
         self.assertContains(resp, self.menu_new.season)
 
     def test_new_menu(self):
+        """ create_new_menu view"""
         resp = self.client.get(reverse('menu_new'))
         self.assertEqual(resp.status_code, 200)
 
     def test_new_menu_user(self):
+        """ Tests create_new_menu with a user"""
         self.client.login(username='Test', password='Test123')
         resp = self.client.get(reverse('menu_new'))
         self.assertEqual(resp.status_code, 200)
