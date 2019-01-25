@@ -3,9 +3,9 @@ from django.utils import timezone
 
 
 class Menu(models.Model):
-    season = models.CharField(max_length=20)
+    season = models.CharField(max_length=20, default='')
     items = models.ManyToManyField('Item', related_name='items')
-    created_date = models.DateField(default=timezone.now)
+    created_date = models.DateField(default=timezone.now, null=True)
     expiration_date = models.DateField(blank=True, null=True)
 
     def __str__(self):
